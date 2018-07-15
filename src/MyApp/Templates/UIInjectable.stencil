@@ -1,0 +1,11 @@
+// sourcery:inline:UIFactory.UIInjectable
+{% for type in types.implementing.UIInjectable %}
+extension UIFactory
+{
+  func create{{ type.name }}() -> {{ type.name }}
+  {
+    return try! container.resolve()
+  }
+}
+{% endfor %}
+// sourcery:end
